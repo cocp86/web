@@ -1,9 +1,6 @@
-FROM ubuntu:latest
-
-RUN apt-get -y update && apt-get -y install nginx
-
-COPY content/index.html /var/www/html/index.nginx-debian.html
-
-EXPOSE 80
-
+FROM nginx:latest
+COPY default.conf /etc/nginx/conf.d/default.conf
+RUN mkdir -p /www/myapp
+COPY . /www/myapp
+LABEL maintainer="Andrew <XXXXXXYYYZZZZ@gmail.com>" \ version="1.0"
 CMD ["nginx", "-g", "daemon off;"]

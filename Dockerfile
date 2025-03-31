@@ -8,4 +8,6 @@ COPY . /www/myapp
 LABEL maintainer="Andrew Conti <avc.conti@gmail.com>" \ 
 	version="1.0"
 
+EXPOSE 8080 
+
 CMD ["nginx", "-g", "daemon off;"]
